@@ -9,3 +9,8 @@ edges = []
 transform = new_matrix()
 
 parse_file( 'script', edges, transform, screen, color )
+
+m= make_translate(3,6,9)
+m= make_scale(3,6,9)
+m = make_rotX(90)
+print_matrix(m)
