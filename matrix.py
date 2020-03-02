@@ -25,7 +25,15 @@ def make_scale( x, y, z ):
     m[2][2] = z
     m[3][3] = 1
     return m
+def rotate(axis,theta):
+    if axis == "x":
+        m = make_rotX(theta)
+    if axis == "y":
+        m = make_rotY(theta)
+    if axis == "z":
+        m = make_rotZ(theta)
 
+    return m
 def make_rotX( theta ):
     theta = math.radians(theta)
     m = new_matrix()
@@ -69,6 +77,10 @@ def print_matrix( matrix ):
         s+= '\n'
     print(s)
 
+def matrix_add(bigMatrix,smallMatrix):
+    for i in range(len(smallMatrix)):
+        bigMatrix.append(smallMatrix[i][:])
+
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
@@ -82,7 +94,6 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-
     point = 0
     for row in m2:
         #get a copy of the next point

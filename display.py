@@ -22,8 +22,8 @@ def new_screen( width = XRES, height = YRES ):
 
 def plot( screen, color, x, y ):
     newy = YRES - 1 - y
-    if ( x >= 0 and x < XRES and newy >= 0 and newy < YRES ):
-        screen[newy][x] = color[:]
+    if ( x >= 0 and x < XRES-1 and newy >= 0 and newy < YRES-1 ):
+        screen[int(round(newy))][int(round(x))] = color[:]
 
 def clear_screen( screen ):
     for y in range( len(screen) ):
